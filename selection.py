@@ -9,8 +9,9 @@ import os
 import shutil
 import sys
 from datetime import datetime, timedelta
+import secrets
 
-os.chdir("/Users/yulongyang/Documents/Rutgers/TA/Intro to Matlab")
+os.chdir(secrets.GPATH)
 REPORT_DIR = "./submissions"
 COPY_DIR = "./reports"
 
