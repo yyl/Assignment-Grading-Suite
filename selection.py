@@ -10,18 +10,11 @@ import shutil
 import sys
 from datetime import datetime, timedelta
 import secrets
+from utility import levelwalk
 
 os.chdir(secrets.GPATH)
 REPORT_DIR = "./submissions"
 COPY_DIR = "./reports"
-
-# walk dir/files within given dir and level
-def levelwalk(top, level):
-    for dirpath, dirnames, filenames in os.walk(top):
-        depth = os.path.relpath(dirpath, top).count(os.path.sep)
-        if depth == level:
-            yield dirpath, dirnames, filenames
-            del dirnames
 
 # return roster hashmap
 def getRosterHash(path):
