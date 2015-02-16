@@ -2,6 +2,8 @@
 
 '''
 This script is used to select only assignments of students that met requirements
+Select qualified folders from submissions/ and copy into reports/
+Usage: python script.py section date(MMDD)
 '''
 import re
 from collections import defaultdict
@@ -18,7 +20,7 @@ COPY_DIR = "./reports"
 
 # return roster hashmap
 def getRosterHash(path):
-    return dict((line.rstrip(), True) for line in open(path))
+    return dict((line.rstrip().rstrip(","), True) for line in open(path))
 
 # collect valid reports
 def collect(roster, duetime):
@@ -51,7 +53,6 @@ def collect(roster, duetime):
         if chose_sub:
             count += 1
             if not os.path.exists(os.path.join(COPY_DIR, netid)):
-                print name, chose_sub
                 shutil.copytree(os.path.join(root, chose_sub), 
                                 os.path.join(COPY_DIR, netid))
     print "%d reports collected." % count

@@ -2,7 +2,7 @@
 
 '''
 Script to compile all mfiles into html format
-Also generate log files
+Execute all files from reports/, and generate html file into published/
 '''
 
 import re
@@ -20,7 +20,7 @@ OUTPUT = "./published"
 LOG = "./logs"
 
 def main():
-    args = ["matlab", "-nodisplay", "-nosplash", "-nodesktop", "-logfile"]
+    args = ["matlab", "-nodisplay", "-nosplash", "-nodesktop", "-r"]
     command = "addpath('%s');publish('%s', 'format', 'html', 'outputDir', '%s');exit;"
     for root, dirs, files in levelwalk(COPY_DIR, 0):
         name = os.path.basename(root)
@@ -34,12 +34,12 @@ def main():
                 if not os.path.exists(logdir):
                     os.makedirs(logdir)
                 logfile = os.path.join(logdir, os.path.splitext(f)[0] + ".txt")
-                args.append(logfile)
-                args.append("-r")
+                # args.append(logfile)
+                # args.append("-r")
                 args.append(command % (root, os.path.join(root, f), output_dir))
                 subprocess.call(args)
                 #print args
-                args = args[:-3]
+                args.pop()
 
 if __name__ == '__main__':
     main()
