@@ -28,4 +28,3 @@ def movefiles(src, dst, extension):
                 newfile = os.path.join(dst, name + "_" + f) 
                 curfile = os.path.join(root, f)
                 os.rename(curfile, newfile)
-
