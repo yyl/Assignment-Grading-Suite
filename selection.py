@@ -16,7 +16,7 @@ from utility import levelwalk
 
 os.chdir(secrets.GPATH)
 REPORT_DIR = "./submissions"
-COPY_DIR = "./reports"
+COPY_DIR = "./codes"
 
 # return roster hashmap
 def getRosterHash(path):
@@ -55,11 +55,11 @@ def collect(roster, duetime):
             if not os.path.exists(os.path.join(COPY_DIR, netid)):
                 shutil.copytree(os.path.join(root, chose_sub), 
                                 os.path.join(COPY_DIR, netid))
-    print "%d reports collected." % count
+    print "%d set of codes collected." % count
 
 if __name__ == '__main__':
     if len(sys.argv) != 3: exit()
     section = sys.argv[1]
     date = sys.argv[2]
     roster = getRosterHash("./roster/%s.csv" % section)
-    collect(roster, "2015%s_0300PM" % date)
+    collect(roster, "2015%s_0700PM" % date)

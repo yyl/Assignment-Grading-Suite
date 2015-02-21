@@ -15,7 +15,7 @@ import shlex, subprocess
 from utility import levelwalk
 
 os.chdir(secrets.GPATH)
-COPY_DIR = "./reports"
+COPY_DIR = "./codes"
 OUTPUT = "./published"
 
 def main():
