@@ -18,3 +18,9 @@ Usage: `python compile.py`
 move all html reports into `grading`
 
 Usage: `python organize foldername`
+
+### seat pattern
+
+randomly assign seating pattern to each student, and generate the pattern in `roster`
+
+Usage: `python assignSeat.py sec_num`
