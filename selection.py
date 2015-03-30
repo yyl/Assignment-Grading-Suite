@@ -3,7 +3,8 @@
 '''
 This script is used to select only assignments of students that met requirements
 Select qualified folders from submissions/ and copy into reports/
-Usage: python script.py section date(MMDD)
+Usage: python selection.py section date(MMDD) time(MMHHam/pm)
+Eaxmple: python selection.py 5 0324 0300PM
 '''
 import re
 from collections import defaultdict
@@ -58,8 +59,12 @@ def collect(roster, duetime):
     print "%d set of codes collected." % count
 
 if __name__ == '__main__':
-    if len(sys.argv) != 3: exit()
+    if len(sys.argv) != 4: 
+        print "usage:   python selection.py section(5/11) date(MMDD) time(HHMMam/pm)"
+        print "example: python selection.py 5 0324 0300PM"
+        exit()
     section = sys.argv[1]
     date = sys.argv[2]
+    time = sys.argv[3]
     roster = getRosterHash("./roster/%s.csv" % section)
-    collect(roster, "2015%s_0700PM" % date)
+    collect(roster, "2015%s_%s" % (date, time))

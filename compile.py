@@ -20,7 +20,7 @@ OUTPUT = "./published"
 
 def main():
     args = ["matlab", "-nodisplay", "-nosplash", "-nodesktop", "-r"]
-    command = "addpath('%s');publish('%s', 'format', 'pdf', 'imageFormat', 'jpeg', 'outputDir', '%s');exit;"
+    command = "addpath('./Assignment-Grading-Suite/course_functions');addpath('%s');publish('%s', 'format', 'pdf', 'imageFormat', 'jpeg', 'outputDir', '%s');exit;"
     for root, dirs, files in levelwalk(COPY_DIR, 0):
         name = os.path.basename(root)
         ## change bad extension .m~ to .m

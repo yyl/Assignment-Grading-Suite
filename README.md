@@ -5,7 +5,7 @@ Set of scripts to automate TA grading.
 
 select only qualified submissionts from `submissions`, and copy into `reports`
 
-Usage: `python selection.py section date(MMDD)`
+Usage: `python selection.py section date(MMDD) time(HHMMAM/PM)`
 
 ### compile
 
